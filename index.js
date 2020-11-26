@@ -7,7 +7,7 @@ var { getUnitRegexp } = require('./src/pixel-unit-regexp');
 
 var defaults = {
   unitToConvert: 'px',
-  viewportWidth: 320,
+  viewportWidth: 375,
   viewportHeight: 568, // not now used; TODO: need for different units and math for different properties
   unitPrecision: 5,
   viewportUnit: 'vw',
@@ -23,7 +23,7 @@ var defaults = {
   pc: false,
   pcQueryMinWidth: 1200,
   pcContainerSelector: "main",
-  pcContainerMaxWidth: 400,
+  pcContainerMaxWidth: 375,
   pcContainerBackground: "white",
   pcBodyBackground: "rgb(246,246,246)"
 };
