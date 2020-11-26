@@ -124,25 +124,25 @@ module.exports = postcss.plugin('postcss-px-to-viewport', function (options) {
       css.append(landscapeRoot);
     }
     if(pcRules.length > 0) {
-      const decl1 = new postcss.Declaration({prop: 'max-width', value: `${opts.pcContainerMaxWidth}px`})
-      const decl2 = new postcss.Declaration({prop: 'margin', value: '0 auto'})
+      const decl1 = postcss.decl({prop: 'max-width', value: `${opts.pcContainerMaxWidth}px`})
+      const decl2 = postcss.decl({prop: 'margin', value: '0 auto'})
       
       
-      var rule_container = new postcss.Rule({selector: opts.pcContainerSelector})
-      var rule_body = new postcss.Rule({selector: 'html, body'})
+      var rule_container = postcss.rule({selector: opts.pcContainerSelector})
+      var rule_body = postcss.rule({selector: 'html, body'})
 
       rule_container.append(decl1, decl2)
 
       // h5 container 背景色
       if(opts.pcContainerBackground) {
-        const decl_container_bg = new postcss.Declaration({prop: 'background-color', value: opts.pcContainerBackground})
+        const decl_container_bg = postcss.decl({prop: 'background-color', value: opts.pcContainerBackground})
         rule_container.append(decl_container_bg)
       }
       pcRules.push(rule_container)
 
       // body 背景色
       if(opts.pcBodyBackground) {
-        const decl_body_bg = new postcss.Declaration({prop: 'background-color', value: opts.pcBodyBackground + '!important'})
+        const decl_body_bg = postcss.decl({prop: 'background-color', value: opts.pcBodyBackground + '!important'})
         rule_body.append(decl_body_bg)
         pcRules.push(rule_body)
       }
